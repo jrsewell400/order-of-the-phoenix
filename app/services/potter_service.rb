@@ -5,8 +5,15 @@ class PotterService
     end
   end
 
-  def house(house)
-    response = connection.get("/houses/#{house}")
-    JSON.parse(response.body, symbolize: true)
+  def houses(house)
+    response = connection.get("houses")
+    house_info = JSON.parse(response.body, symbolize: true)
+    house_info.find do |each_house|
+      if each_house["name"] == house
+        @id = each_house["_id"]
+      end
+    end
+    @id
+    binding.pry
   end
 end
