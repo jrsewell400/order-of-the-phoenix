@@ -5,10 +5,16 @@ RSpec.describe "As a user,", type: :feature do
     it "then I should be on '/search', see the total number of Gryffindor members, and a list with detailed info on the members." do 
       visit '/'
       select "Gryffindor", from: :house
-      click_on "Search for Members"
+      click_on "Search For Members"
 
       expect(page).to have_current_path("/search")
-      expect(page).to have_content("21")
+      expect(page).to have_content("39 Results")
+      expect(page).to have_css(".member", count: 39)
+
+      within(first(".member")) do
+        expect(page).to have_css(".id")
+        expect(page).to have_css(".name")
+      end
     end
   end
 end
