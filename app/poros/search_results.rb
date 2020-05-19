@@ -5,4 +5,8 @@ class SearchResults
       Member.new(member_info)
     end
   end
+
+  def house_info(house)
+    PotterService.new.get_house_info(house)
+  end
 end
