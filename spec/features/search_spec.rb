@@ -7,9 +7,9 @@ RSpec.describe "As a user,", type: :feature do
       select "Gryffindor", from: :house
       click_on "Search For Members"
 
-      expect(page).to have_current_path("/search")
-      expect(page).to have_content("39 Results")
-      expect(page).to have_css(".member", count: 39)
+      expect(page).to have_current_path("/search?utf8=%E2%9C%93&house=Gryffindor&commit=Search+For+Members")
+      expect(page).to have_content("40 Results")
+      expect(page).to have_css(".member", count: 40)
 
       within(first(".member")) do
         expect(page).to have_css(".name")
