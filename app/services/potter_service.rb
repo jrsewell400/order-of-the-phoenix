@@ -14,6 +14,11 @@ class PotterService
       end
     end
     @id
-    binding.pry
+  end
+
+  def get_house_info(house)
+    house_id = houses(house)
+    response = connection.get("houses/#{house_id}")
+    JSON.parse(response.body, symbolize: true)
   end
 end

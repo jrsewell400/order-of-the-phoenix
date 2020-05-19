@@ -1,8 +1,7 @@
 class SearchResults
   def members(house)
-    json = PotterService.new.houses(house)
-    # binding.pry
-    @members = json["members"].map do |member_info|
+    house = PotterService.new.get_house_info(house)
+    @members = house.first["members"].map do |member_info|
       Member.new(member_info)
     end
   end

@@ -3,6 +3,7 @@
 <% @members.each do |member| %>
   <ul class="member">
     <li class="name"><%= member.name %></li>
+    <% binding.pry %>
     <li class="role"><%= member.role %></li>
   </ul>
 <% end %>

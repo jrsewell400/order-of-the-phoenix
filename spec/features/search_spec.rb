@@ -12,7 +12,6 @@ RSpec.describe "As a user,", type: :feature do
       expect(page).to have_css(".member", count: 39)
 
       within(first(".member")) do
-        expect(page).to have_css(".id")
         expect(page).to have_css(".name")
       end
     end
